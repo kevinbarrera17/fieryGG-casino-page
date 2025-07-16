@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>final-proyect</title>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="nuevoElemento" placeholder="Escribe un nuevo elemento">
+    <button id="agregar">Agregar a la Lista</button>
+    <ul id="listaInteractiva"></ul>
+  </div>
+  <script>
+    const lista = document.getElementById("listaInteractiva");
+    const botonAgregar = document.getElementById("agregar");
+    const input = document.getElementById("nuevoElemento");
+
+    botonAgregar.addEventListener("click", () => {
+      const texto = input.value;
+      if (texto) {
+        const nuevoElemento = document.createElement("li");
+        nuevoElemento.innerText = texto;
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.innerText = "Eliminar";
+        botonEliminar.addEventListener("click", () => {
+          lista.removeChild(nuevoElemento);
+        });
+
+        nuevoElemento.appendChild(botonEliminar);
+        lista.appendChild(nuevoElemento);
+        input.value = ""; // Limpia el campo de texto
+      }
+    });
+  </script>
+</body>
+
+</html>

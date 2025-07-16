@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .activo {
+      background-color: blueviolet;
+      color: blanchedalmond;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="selectorById">
+    <button id="miBoton">
+      Hola soy un BUTTON c:
+    </button>
+  </div>
+  <div class="selectorByClass">
+    <div class="destacado">
+      <p>
+        Soy un texto negro
+      </p>
+    </div>
+  </div>
+  <div class="selectorQuery">
+    <div>
+      <a href=""> Hola soy un enlace c: </a>
+      <a href=""> Hola soy un enlace c: </a>
+      <a href=""> Hola soy un enlace c: </a>
+      <a href=""> Hola soy un enlace c: </a>
+    </div>
+  </div>
+  <div class="elementInner">
+    <p id="miParrafo">
+      Hola soy un parrafo c:
+    </p>
+  </div>
+  <div class="setAtributo">
+    <img src="assets/fiery.gg-pagina-base.png" style="max-width: 124px;">
+  </div>
+  <div class="createElement">
+    <ul id="miLista">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <div class="elementStyle">
+    <div id="miCaja">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem neque, consectetur velit ratione aliquid quae id
+        blanditiis, eligendi enim quis impedit. Magnam minima nesciunt corrupti itaque quidem incidunt reprehenderit
+        dolorem?</p>
+    </div>
+  </div>
+  <div class="classList">
+    <button class="activo" id="miBotonClases">
+      Hola soy un boton que modifica clases
+    </button>
+  </div>
+  <div class="eventListener">
+    <button id="miBotonAlerta">
+      No le des click c:
+    </button>
+  </div>
+  <div class="navegationDOM">
+    <ul id="myList">
+      <li> Nav Nav Nav </li>
+      <li> Nav Nav Nav </li>
+      <li> Nav Nav Nav </li>
+      <li> Nav Nav Nav </li>
+    </ul>
+  </div>
+
+
+  <script>
+
+    // 2. document.getElementById("id") Selecciona un elemento específico por su ID.
+
+    // Ejemplo: Selecciona un botón y cambia su texto
+    const boton = document.getElementById("miBoton");
+    boton.innerText = "Nuevo Texto del Botón";
+
+
+
+    // 3. document.getElementsByClassName("class") Selecciona todos los elementos que comparten una misma clase.
+
+    // Ejemplo: Selecciona todos los elementos con la clase "destacado" y les cambia el color
+    const destacados = document.getElementsByClassName("destacado");
+    for (let elemento of destacados) {
+      elemento.style.color = "red";
+    }
+
+
+
+    // 4. document.querySelector("selector") y document.querySelectorAll("selector") Selecciona el primer elemento o todos los elementos que coinciden con un selector de CSS.
+
+    // Ejemplo: Selecciona el primer enlace (<a>) y cambia su texto
+    const primerEnlace = document.querySelector("a");
+    primerEnlace.innerText = "Nuevo Enlace";
+    // Ejemplo: Selecciona el todos los enlaces (<a>) y cambia el color
+    const todosEnlaces = document.querySelectorAll("a");
+    for (let elemento of todosEnlaces) {
+      elemento.style.color = "blue";
+    }
+
+
+
+    // 5. element.innerText y element.innerHTML, textContent
+
+    // Ejemplo: Modifica el contenido de un párrafo
+    const parrafo = document.getElementById("miParrafo");
+    parrafo.innerText = "Este es un nuevo contenido de texto";
+    parrafo.innerHTML = "<strong>Este es un contenido HTML con estilo</strong>";
+
+
+
+    // 6. element.setAttribute("atributo", "valor") Cambia o añade un atributo a un elemento.
+
+    // Ejemplo: Añade un atributo title a una imagen
+    const imagen = document.querySelector("img");
+    imagen.setAttribute("title", "Texto alternativo de la imagen");
+
+
+
+    // 7. document.createElement("tag") y parent.appendChild(elemento) Crea un nuevo elemento HTML y lo añade al DOM.
+
+    // Ejemplo: Crea un nuevo elemento de lista y lo añade a una lista <ul>
+    const lista = document.getElementById("miLista");
+    const nuevoElemento = document.createElement("li");
+    nuevoElemento.innerText = "Nuevo Elemento de la Lista";
+    lista.appendChild(nuevoElemento);
+
+
+
+    // 8. parent.removeChild(elemento) Elimina un elemento hijo de su elemento padre.
+
+    // Ejemplo: Elimina el primer elemento de una lista
+
+    const primerElemento = document.querySelector("li");
+    primerElemento.parentNode.removeChild(primerElemento);
+
+
+
+    // 9. element.style.property Modifica una propiedad CSS en línea de un elemento.
+
+    // Ejemplo: Cambia el color de fondo de un div
+
+    const caja = document.getElementById("miCaja");
+    caja.style.backgroundColor = "lightblue";
+
+
+
+    // 10. element.classList.add("clase"), element.classList.remove("clase"), element.classList.toggle("clase") Añade, elimina o alterna una clase en un elemento.
+
+    // Ejemplo: Alterna una clase en un botón para activar o desactivar un estilo.
+
+    const botonClass = document.getElementById("miBotonClases");
+    botonClass.addEventListener("click", () => {
+      botonClass.classList.toggle("activo");
+    });
+
+
+
+    // 11. element.addEventListener("evento", function) Asocia un evento a un elemento.
+
+    // Ejemplo: Muestra una alerta cuando se hace clic en un botón
+
+    const botonAlert = document.getElementById("miBotonAlerta");
+    botonAlert.addEventListener("click", () => {
+      alert("¡Has hecho clic en el botón! :c");
+    });
+
+
+
+    // 12. Propiedades para acceder a elementos relacionados:
+
+    // Ejemplo: Selecciona el primer hijo de un elemento ul y cambia su color
+
+    const list = document.getElementById("myList");
+    const firstElement = list.firstElementChild;
+    firstElement.style.color = "orange";
+  </script>
+</body>
+
+</html>
