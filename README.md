@@ -14,3 +14,5 @@ Prototipo de una casa de apuestas y casino online. Contiene interfaces básicas 
 
 ### 🚀 Propósito:
 Desarrollo de una idea ficticia como ejercicio de maquetación con diseño temático y animaciones básicas.
+
+Enlace: https://kevinbarrera17.github.io/fieryGG-casino-page/
